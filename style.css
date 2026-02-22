@@ -112,13 +112,19 @@ h1 {
   text-align: left;
 }
 
+.comments-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
 .divider {
   border: 0;
   border-top: 1px solid #ddd;
   margin-bottom: 20px;
 }
 
-.contact-section h3 {
+.contact-section h3,
+.comments-section h3 {
   font-size: 1.1rem;
   margin-bottom: 20px;
   color: var(--text-color);
