@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>점심 메뉴 추천</title>
+  <title>로또 번호 추첨기</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <div class="container">
-    <h1>오늘의 점심 메뉴는?</h1>
-    <lunch-recommender></lunch-recommender>
+    <div class="header">
+      <h1>로또 번호 추첨기</h1>
+      <button id="dark-mode-toggle" class="toggle-btn">다크 모드</button>
+    </div>
+    <div id="lotto-balls" class="balls-container">
+      <span class="ball placeholder">?</span>
+      <span class="ball placeholder">?</span>
+      <span class="ball placeholder">?</span>
+      <span class="ball placeholder">?</span>
+      <span class="ball placeholder">?</span>
+      <span class="ball placeholder">?</span>
+    </div>
+    <button id="generate-btn" class="main-btn">번호 추첨하기</button>
   </div>
   <script defer type="module" src="/main.js"></script>
 </body>

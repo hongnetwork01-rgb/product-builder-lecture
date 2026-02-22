@@ -1,16 +1,116 @@
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --btn-bg: #4a90e2;
+  --btn-hover: #357abd;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --btn-bg: #bb86fc;
+  --btn-hover: #9965f4;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Pretendard', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
   text-align: center;
-  background-color: #fff;
+  background-color: var(--card-bg);
   padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.toggle-btn {
+  padding: 5px 12px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.balls-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ball.placeholder {
+  background-color: #ddd;
+  color: #888;
+}
+
+.ball.yellow { background-color: #fbc400; color: #000; }
+.ball.blue { background-color: #69c8f2; }
+.ball.red { background-color: #ff7272; }
+.ball.gray { background-color: #aaaaaa; }
+.ball.green { background-color: #b0d840; }
+
+.main-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  background-color: var(--btn-bg);
+  color: white;
+  border: none;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.main-btn:hover {
+  background-color: var(--btn-hover);
+}
+
+@media (max-width: 480px) {
+  .ball {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
