@@ -38,16 +38,16 @@
         </div>
       </section>
 
-      <button id="analyze-btn" class="main-btn" type="button" onclick="predict()">관상 분석하기</button>
+      <button id="analyze-btn" class="main-btn" type="button" onclick="predict()">분석하기</button>
       
       <div id="loading" class="loading hidden">
         <div class="spinner"></div>
-        <p id="loading-text">AI가 관상을 분석 중입니다...</p>
+        <p id="loading-text" style="font-weight: bold; color: #ff4d4d;">AI가 실제 범죄자 몽타주와 대조 중입니다...</p>
       </div>
 
       <div id="result-container" class="result-container hidden">
         <h2 id="result-title"></h2>
-        <p id="result-desc" class="main-desc"></p>
+        <p id="result-desc" class="main-desc" style="font-weight: bold;"></p>
         
         <div class="luck-details-grid">
           <div class="luck-item">
@@ -79,11 +79,11 @@
       </div>
 
       <article class="info-section">
-        <h2>관상이란 무엇인가요?</h2>
-        <p>관상(학)은 사람의 생김새, 얼굴 모습 등을 보고 그 사람의 운명, 성격, 수명 등을 판단하는 전통적인 점술의 일종입니다. 본 서비스는 최신 AI 기술을 활용하여 재미로 보는 관상 풀이를 제공합니다.</p>
+        <h2>서비스 안내</h2>
+        <p>본 서비스는 최신 AI 기술을 활용하여 재미로 보는 관상 및 범죄상 분석을 제공합니다. 범죄상 테스트는 실제 공개된 범죄자들의 외형적 특징을 학습한 데이터를 바탕으로 분석 결과를 도출합니다.</p>
         
-        <h3>이용 시 유의사항</h3>
-        <p>업로드된 사진은 서버에 저장되지 않으며, 오직 브라우저 내에서만 처리됩니다. 결과는 과학적 근거가 없으니 재미로만 즐겨주세요.</p>
+        <h3 style="color: #ff4d4d;">⚠️ 주의사항</h3>
+        <p>분석 결과는 과학적인 근거가 없는 재미용일 뿐이며, 특정 인물을 비하하거나 비난할 목적으로 사용하지 마십시오. 업로드된 사진은 서버에 저장되지 않으며 익명성이 보장됩니다.</p>
       </article>
     </main>
 

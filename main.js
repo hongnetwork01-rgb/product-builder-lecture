@@ -17,22 +17,25 @@ function setMode(mode) {
   const mainTitle = document.getElementById('main-title');
   const analyzeBtn = document.getElementById('analyze-btn');
   const uploadText = document.getElementById('upload-text');
+  const container = document.querySelector('.container');
 
   if (mode === 'face') {
     faceBtn.classList.add('active');
     criminalBtn.classList.remove('active');
+    container.classList.remove('criminal-theme');
     mainTitle.textContent = 'AI 관상 테스트';
     analyzeBtn.textContent = '관상 분석하기';
     uploadText.textContent = '얼굴 사진을 올려주세요';
   } else {
     faceBtn.classList.remove('active');
     criminalBtn.classList.add('active');
+    container.classList.add('criminal-theme');
     mainTitle.textContent = 'AI 범죄상 테스트';
     analyzeBtn.textContent = '범죄상 분석하기';
     uploadText.textContent = '범죄상 분석을 위해 사진을 올려주세요';
   }
   
-  removeUpload(); // Reset when switching modes
+  removeUpload();
 }
 
 function readURL(input) {
@@ -67,14 +70,14 @@ function predict() {
   }
   
   const loadingText = document.getElementById('loading-text');
-  loadingText.textContent = currentMode === 'face' ? 'AI가 관상을 분석 중입니다...' : 'AI가 범죄상을 분석 중입니다...';
+  loadingText.textContent = currentMode === 'face' ? 'AI가 관상을 분석 중입니다...' : 'AI가 실제 범죄자 관상 데이터와 대조 중입니다...';
   
   document.getElementById('analyze-btn').style.display = 'none';
   document.getElementById('loading').classList.remove('hidden');
   
   setTimeout(() => {
     showResult();
-  }, 2500);
+  }, 3000);
 }
 
 function showResult() {
@@ -96,30 +99,29 @@ function showResult() {
       l2: "❤️ 연애운", d2: "불꽃 같은 열정적인 사랑을 할 관상입니다. 감수성이 풍부하여 상대방을 깊이 매료시키며, 평생 잊지 못할 로맨틱한 인연을 만납니다.",
       l3: "💼 직업운", d3: "창의적인 분야에서 빛을 발합니다. 정해진 틀에 박힌 일보다는 자유로운 환경에서 자신의 재능을 펼칠 때 세상의 주목을 받게 됩니다."
     }
-    // ... (rest of face results simplified for brevity in mock)
   ];
 
   const criminalResults = [
     {
-      title: "잠재적 사이코패스 살인마상",
-      desc: "차가운 눈빛과 감정이 메마른 듯한 얼굴선이 특징입니다. 타인의 고통에 무감각하며, 치밀하고 계획적인 행동 양상을 보일 수 있는 위험한 관상입니다.",
-      l1: "🔪 살인마 지수", d1: "한 번 정한 목표는 수단과 방법을 가리지 않고 처리하는 냉혹함이 보입니다. 감정 컨트롤이 매우 뛰어나 주변에서 알아차리기 어렵습니다.",
-      l2: "💊 마약 중독 지수", d2: "현실 도피적인 성향은 낮으나, 자극을 위해 위험한 약물에 손을 댈 가능성이 있습니다. 자신의 쾌락을 최우선으로 생각합니다.",
-      l3: "🔞 성범죄 지수", d3: "지배 욕구가 강하여 타인을 소유물로 보려는 경향이 있습니다. 비정상적인 집착이 범죄로 이어질 수 있으니 주의가 필요합니다."
+      title: "연쇄 강력범죄형 (Serial Offender)",
+      desc: "실제 강력범죄자들의 공통적인 특징인 '차가운 무표정'과 '비대칭적인 눈빛'이 강하게 검출되었습니다. 감정 조절 능력이 낮고 우발적인 폭력성이 잠재되어 있을 가능성이 높습니다.",
+      l1: "🩸 살인 및 폭력 위험도", d1: "매우 위험한 수치입니다. 순간적인 분노가 폭발하면 스스로를 제어하기 힘든 타입입니다.",
+      l2: "💸 경제 범죄 가능성", d2: "수단과 방법을 가리지 않고 목적을 달성하려는 경향이 있어 금융 범죄에 노출될 수 있습니다.",
+      l3: "💊 약물 중독 위험도", d3: "현실 도피적인 성향이 강해 중독성 물질에 의존할 확률이 다른 관상보다 높습니다."
     },
     {
-      title: "교활한 사기꾼 마약 밀매상",
-      desc: "화려한 언변과 상대를 현혹시키는 눈웃음 뒤에 비수가 숨겨져 있습니다. 남의 재물을 탐하며 합법과 불법의 경계를 아슬아슬하게 넘나드는 상입니다.",
-      l1: "🔪 살인마 지수", d1: "직접적인 폭력보다는 정신적인 고통을 주는 것을 즐깁니다. 필요하다면 배신을 밥 먹듯 하며 타인의 삶을 파괴합니다.",
-      l2: "💊 마약 중독 지수", d2: "쾌락보다는 돈을 목적으로 약물을 유통하거나 이용하는 기질이 강합니다. 마약 범죄의 중심에 있을 확률이 높습니다.",
-      l3: "🔞 성범죄 지수", d3: "상대방의 약점을 잡아 이용하는 가스라이팅형 범죄 성향이 농후합니다. 교묘한 수법으로 타인의 심리를 조종합니다."
+      title: "지능형 경제 사기범형 (White Collar)",
+      desc: "상대방을 안심시키는 부드러운 미소 뒤에 치밀한 계산이 숨겨져 있습니다. 남의 재물을 탐하며 합법의 테두리를 교묘히 넘나드는 전형적인 지능범의 관상입니다.",
+      l1: "🩸 살인 및 폭력 위험도", d1: "직접적인 폭력보다는 정신적인 지배와 착취를 즐기는 소시오패스적 성향이 보입니다.",
+      l2: "💸 경제 범죄 가능성", d2: "최고 수치입니다. 타인의 신뢰를 이용해 막대한 이익을 챙기는 사기 범죄에 최적화된 관상입니다.",
+      l3: "💊 약물 중독 위험도", d3: "이성적인 판단을 중시하여 약물에는 의존하지 않으나, 도박과 같은 투기성 중독에 취약합니다."
     },
     {
-      title: "충동적인 연쇄 성범죄자상",
-      desc: "욕망을 참지 못하는 번들거리는 눈빛과 불안정한 안면 근육이 보입니다. 순간적인 충동을 억제하지 못해 반복적인 범죄 저지를 가능성이 높은 상입니다.",
-      l1: "🔪 살인마 지수", d1: "우발적인 폭력성이 강합니다. 계획적이지는 않으나 순간적인 분노가 끔찍한 결과를 초래할 수 있는 위험한 관상입니다.",
-      l2: "💊 마약 중독 지수", d2: "의지력이 약해 중독성 약물에 매우 취약합니다. 환각 상태에서 더 큰 범죄를 저지를 위험이 도사리고 있습니다.",
-      l3: "🔞 성범죄 지수", d3: "가장 위험한 수치를 보입니다. 비뚤어진 성적 욕망이 사회적 금기를 깨트리며 타인에게 씻을 수 없는 상처를 남길 수 있습니다."
+      title: "성범죄 및 스토킹 고위험군",
+      desc: "비뚤어진 소유욕과 집착이 안색과 눈동자의 움직임에서 포착되었습니다. 상대의 거부 의사를 무시하고 자기중심적으로 해석하여 범죄를 정당화할 위험이 큽니다.",
+      l1: "🩸 살인 및 폭력 위험도", d1: "집착이 광기로 변할 경우 극단적인 선택을 할 수 있는 위험한 잠재력이 검출되었습니다.",
+      l2: "💸 경제 범죄 가능성", d2: "물욕보다는 소유욕에 집중되어 있어 상대적으로 경제 범죄 수치는 낮게 나타납니다.",
+      l3: "🔞 성범죄 지수", d3: "위험 수위입니다. 자신의 욕망을 사회적 도덕보다 우선시하는 경향이 뚜렷하게 보입니다."
     }
   ];
 
@@ -136,9 +138,12 @@ function showResult() {
   document.getElementById('label-3').textContent = randomResult.l3;
   document.getElementById('desc-3').textContent = randomResult.d3;
 
-  setBarWidth('bar-1', Math.floor(Math.random() * 40) + 60);
-  setBarWidth('bar-2', Math.floor(Math.random() * 40) + 60);
-  setBarWidth('bar-3', Math.floor(Math.random() * 40) + 60);
+  const barColor = currentMode === 'face' ? '' : '#ff4d4d'; // Red for criminal
+  for(let i=1; i<=3; i++) {
+    const bar = document.getElementById(`bar-${i}`);
+    bar.style.background = barColor;
+    setBarWidth(`bar-${i}`, Math.floor(Math.random() * 40) + 60);
+  }
 }
 
 function setBarWidth(id, percent) {

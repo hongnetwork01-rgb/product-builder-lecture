@@ -43,6 +43,42 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   text-align: center;
   box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+/* Criminal Theme Overrides */
+.container.criminal-theme {
+  border: 3px solid #ff4d4d;
+  box-shadow: 0 0 30px rgba(255, 77, 77, 0.2);
+}
+
+.criminal-theme h1 {
+  background: linear-gradient(to right, #ff4d4d, #b30000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.criminal-theme .main-btn {
+  background: linear-gradient(to right, #ff4d4d, #b30000);
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+}
+
+.criminal-theme .image-upload-wrap {
+  border-color: #ff4d4d;
+}
+
+.criminal-theme .drag-text h3 {
+  color: #ff4d4d;
+}
+
+.criminal-theme .luck-item {
+  border-left: 5px solid #ff4d4d;
+}
+
+.criminal-theme #result-title {
+  color: #ff4d4d;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .header {
