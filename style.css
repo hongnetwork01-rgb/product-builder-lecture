@@ -107,6 +107,63 @@ h1 {
   background-color: var(--btn-hover);
 }
 
+.contact-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.contact-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.sub-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: var(--btn-bg);
+  border: 1.5px solid var(--btn-bg);
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.sub-btn:hover {
+  background-color: var(--btn-bg);
+  color: white;
+}
+
 @media (max-width: 480px) {
   .ball {
     width: 40px;
