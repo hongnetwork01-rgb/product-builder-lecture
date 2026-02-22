@@ -43,38 +43,45 @@
 
       <div id="result-container" class="result-container hidden">
         <h2 id="result-title"></h2>
-        <p id="result-desc"></p>
-        <div class="result-details">
-          <div class="detail-item">
-            <span>재물운</span>
-            <div class="bar-container"><div class="bar" id="bar-wealth"></div></div>
+        <p id="result-desc" class="main-desc"></p>
+        
+        <div class="luck-details-grid">
+          <div class="luck-item">
+            <div class="luck-header">
+              <span class="luck-label">💰 재물운</span>
+              <div class="bar-container"><div class="bar" id="bar-wealth"></div></div>
+            </div>
+            <p id="desc-wealth" class="luck-desc"></p>
           </div>
-          <div class="detail-item">
-            <span>연애운</span>
-            <div class="bar-container"><div class="bar" id="bar-love"></div></div>
+          
+          <div class="luck-item">
+            <div class="luck-header">
+              <span class="luck-label">❤️ 연애운</span>
+              <div class="bar-container"><div class="bar" id="bar-love"></div></div>
+            </div>
+            <p id="desc-love" class="luck-desc"></p>
           </div>
-          <div class="detail-item">
-            <span>직업운</span>
-            <div class="bar-container"><div class="bar" id="bar-career"></div></div>
+          
+          <div class="luck-item">
+            <div class="luck-header">
+              <span class="luck-label">💼 직업운</span>
+              <div class="bar-container"><div class="bar" id="bar-career"></div></div>
+            </div>
+            <p id="desc-career" class="luck-desc"></p>
           </div>
         </div>
-        <button onclick="window.location.reload()" class="retry-btn">다시 하기</button>
+
+        <button onclick="window.location.reload()" class="retry-btn">다른 사진으로 테스트하기</button>
       </div>
 
       <article class="info-section">
         <h2>관상이란 무엇인가요?</h2>
-        <p>관상(학)은 사람의 생김새, 얼굴 모습 등을 보고 그 사람의 운명, 성격, 수명 등을 판단하는 전통적인 점술의 일종입니다. 본 서비스는 최신 AI 기술(을 가장한 알고리즘)을 활용하여 재미로 보는 관상 풀이를 제공합니다.</p>
+        <p>관상(학)은 사람의 생김새, 얼굴 모습 등을 보고 그 사람의 운명, 성격, 수명 등을 판단하는 전통적인 점술의 일종입니다. 본 서비스는 최신 AI 기술을 활용하여 재미로 보는 관상 풀이를 제공합니다.</p>
         
         <h3>이용 시 유의사항</h3>
         <p>업로드된 사진은 서버에 저장되지 않으며, 오직 브라우저 내에서만 처리됩니다. 결과는 과학적 근거가 없으니 재미로만 즐겨주세요.</p>
       </article>
     </main>
-
-    <div class="comments-section">
-      <hr class="divider">
-      <h3>댓글</h3>
-      <div id="disqus_thread"></div>
-    </div>
 
     <footer class="footer">
       <hr class="divider">
@@ -86,24 +93,6 @@
     </footer>
   </div>
 
-  <script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://productbuilder-gkqzsmu4bt.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <script defer src="/main.js"></script>
 </body>
 </html>

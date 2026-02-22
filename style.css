@@ -37,7 +37,7 @@ body {
 .container {
   background-color: var(--card-bg);
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -76,7 +76,6 @@ h1 {
   color: var(--primary-color);
 }
 
-/* Upload Section */
 .upload-section {
   margin-bottom: 30px;
 }
@@ -144,14 +143,8 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s;
 }
 
-.remove-image:hover {
-  background: #e04848;
-}
-
-/* Main Button */
 .main-btn {
   width: 100%;
   padding: 15px;
@@ -162,19 +155,13 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
 }
 
 .main-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
 }
 
-.main-btn:active {
-  transform: translateY(0);
-}
-
-/* Loading */
 .loading {
   margin-top: 20px;
   display: flex;
@@ -201,73 +188,88 @@ h1 {
   display: none !important;
 }
 
-/* Result Section */
+/* Result Section Updated */
 .result-container {
   margin-top: 30px;
-  padding: 20px;
+  padding: 30px;
   background-color: rgba(0,0,0,0.03);
-  border-radius: 15px;
+  border-radius: 20px;
   text-align: left;
 }
 
 #result-title {
   color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-#result-desc {
-  text-align: center;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.result-details {
-  margin-top: 20px;
-}
-
-.detail-item {
+  font-size: 1.6rem;
   margin-bottom: 15px;
+  text-align: center;
 }
 
-.detail-item span {
-  display: block;
+.main-desc {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.luck-details-grid {
+  display: grid;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.luck-item {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.luck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.luck-label {
   font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.luck-desc {
   font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
 }
 
 .bar-container {
-  width: 100%;
+  width: 100px;
   background-color: #e0e0e0;
   border-radius: 10px;
-  height: 10px;
+  height: 8px;
   overflow: hidden;
 }
 
 .bar {
   height: 100%;
   background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-  border-radius: 10px;
   width: 0%;
   transition: width 1s ease-out;
 }
 
 .retry-btn {
   display: block;
-  margin: 20px auto 0;
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-  padding: 8px 20px;
-  border-radius: 20px;
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
-}
-
-.retry-btn:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 /* Info & Footer */
@@ -278,25 +280,10 @@ h1 {
   padding-top: 20px;
 }
 
-.info-section h2, .info-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.comments-section {
-  margin-top: 40px;
-  text-align: left;
-}
-
 .footer {
   margin-top: 40px;
   font-size: 0.8rem;
   color: var(--text-muted);
-}
-
-.footer a {
-  color: var(--text-muted);
-  text-decoration: none;
 }
 
 .divider {
@@ -308,6 +295,13 @@ h1 {
 @media (max-width: 480px) {
   .container {
     padding: 20px;
-    width: 95%;
+  }
+  .luck-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .bar-container {
+    width: 100%;
   }
 }
